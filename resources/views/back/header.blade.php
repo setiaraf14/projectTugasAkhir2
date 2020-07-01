@@ -18,6 +18,9 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+  {{-- script CKEDITOR --}}
+  @yield('ckeditor')
+
 </head>
 
 <body id="page-top">
@@ -56,7 +59,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="{{route('rumah.index')}}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-home"></i>
           <span>Index/User/Home</span>
         </a>

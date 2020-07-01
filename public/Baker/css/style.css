@@ -15,9 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-ol, ul {
-  list-style: none;
-}
+/* tag ol dan li style nonenya di apus */
 
 blockquote, q {
   quotes: none;

@@ -19,9 +19,9 @@
           <div class="col-md-4 col-sm-6 col-xs-12">
             <h4 style="color: peru; font-family: Arial, Helvetica, sans-serif; font-size: 30px;">
               CONTACT US</h4>
-            <p style="color: lightgray; font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 18px;">
-              (12) 345 67890 info.colorlib@gmail.com 856 Cordia Extension Apt.356, Lake, JAKARTA / UNITED / KONDOM Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, doloribus?
-            </p>
+            <div style="color: lightgray; font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 18px;">
+              {!! App\Rumah::all()->first()->alamat_perusahaan !!}
+            </div>
           </div>
 
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -38,7 +38,12 @@
   <!---->
   <footer id="footer">
     <div class="container">
-      
+      <div class="row text-center">
+        <p>&copy; Baker Theme. All Rights Reserved.</p>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
     </div>
   </footer>
   <!---->
