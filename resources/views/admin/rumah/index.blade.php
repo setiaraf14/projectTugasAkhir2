@@ -24,12 +24,12 @@
                 @foreach($data as $item)
                     <tr>
                         <td style="vertical-align: middle">{!! $item->nama_perusahaan !!}</td>
-                        <td style="vertical-align: middle">{!! $item->moto_perusahaan !!}</td>
-                        <td style="vertical-align: middle">{!! $item->desk_perusahaan !!}</td>
-                        <td style="vertical-align: middle">{!! $item->visi_perusahaan !!}</td>
-                        <td style="vertical-align: middle">{!! $item->misi_perusahaan !!}</td>
+                        <td style="vertical-align: middle">{!! Illuminate\Support\Str::of($item->moto_perusahaan)->limit(20) !!}</td>
+                        <td style="vertical-align: middle">{!! Illuminate\Support\Str::of($item->desk_perusahaan)->limit(50) !!}</td>
+                        <td style="vertical-align: middle">{!! Illuminate\Support\Str::of($item->visi_perusahaan)->limit(20) !!}</td>
+                        <td style="vertical-align: middle">{!! Illuminate\Support\Str::of($item->misi_perusahaan)->limit(20) !!}</td>
                         <td style="vertical-align: middle"><img src="{{Storage::url($item->logo_perusahaan)}}" alt=""></td>
-                        <td style="vertical-align: middle">{!! $item->alamat_perusahaan !!}</td>
+                        <td style="vertical-align: middle">{!! Illuminate\Support\Str::of($item->alamat_perusahaan)->limit(20) !!}</td>
                         <td style="vertical-align: middle">
                             <a href="{{ route('rumah.edit',$item->id) }}"
                                 class="btn btn-warning">Edit</a>
