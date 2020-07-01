@@ -14,6 +14,8 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('Baker/css/bootstrap.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('Baker/css/animate.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('Baker/css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+
   <!-- =======================================================
     Theme Name: Baker
     Theme URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
@@ -46,7 +48,7 @@
 
                   <li class=""><a href="#product">Product</a></li>
 
-                  <li class=""><a href="#Clients">Clientss</a></li>
+                  <li class=""><a href="#Clients">Clients</a></li>
 
                   <li class=""><a href="#Contact">Contact</a></li>
 
@@ -58,7 +60,7 @@
         </header>
 
         @yield('judul-content')
-        
+
       </div>
     </div>
     <!--/ HEADER-->
