@@ -50,11 +50,7 @@
 
                                     <li class=""><a href="#product">Product</a></li>
 
-<<<<<<< HEAD
-                                    <li class=""><a href="#Clients">Clientss</a></li>
-=======
-                  <li class=""><a href="#Clients">Clients</a></li>
->>>>>>> 84bf39a9b9086985fc32cec45df0451e85be9366
+                                    <li class=""><a href="#Clients">Clients</a></li>
 
                                     <li class=""><a href="#Contact">Contact</a></li>
 
@@ -74,15 +70,6 @@
                         </div>
                     </div>
                 </div>
-
-<<<<<<< HEAD
-            </div>
-        </div>
-        <!--/ HEADER-->
-=======
-        @yield('judul-content')
-
       </div>
     </div>
     <!--/ HEADER-->
->>>>>>> 84bf39a9b9086985fc32cec45df0451e85be9366

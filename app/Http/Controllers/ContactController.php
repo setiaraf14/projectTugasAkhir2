@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -14,7 +15,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        
+        $contact = Contact::all()->sortByDesc('id');
+        return view('admin.contact.index', compact('contact'));
     }
 
     /**
@@ -25,6 +28,7 @@ class ContactController extends Controller
     public function create()
     {
         //
+        return view('menu.contact');
     }
 
     /**
@@ -35,7 +39,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validatedData = $request->validate([
+            'nama' => 'required|max:25',
+            'email' => 'required',
+            'subject' => 'required|max:25',
+            'pesan' => 'required|max:255'
+        ]);
+
+        Contact::create($validatedData);
+        return redirect()->route('contact.create');
     }
 
     /**
@@ -80,6 +93,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        
+        $contact->delete();
+        return redirect()->route('contact.index');
     }
 }

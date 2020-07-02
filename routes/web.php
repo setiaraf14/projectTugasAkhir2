@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/master', function () {
+    return view('front.master');
+});
 
-// Route::get('/master', function () {
-//     return view('front.master');
-// });
+Route::get('menu/product', function () {
+    return view('menu.product');
+});
 
-// Route::get('menu/product', function () {
-//     return view('menu.product');
-// });
+// Route::get('menu/contact', function (){
+//     return view('menu.contact');
+// }); //ini nanti mesti dihapus, ini buat ngetest aj
 
 Route::get('/back', function () {
     return view('back.master');
@@ -31,7 +34,15 @@ Route::get('/back', function () {
 
 Auth::routes();
 
-Route::resource('contact', 'ContactController');
+Route::get('contact/create', 'ContactController@create')->name('contact.create');
+
+
+Route::get('contact', 'ContactController@index' )->name('contact.index');
+Route::post('contact', 'ContactController@store')->name('contact.store');
+Route::delete('contact/{contact}', 'ContactController@destroy')->name('contact.destroy');
+
+// Route::resource('contact', 'ContactController');
+
 Route::resource('product', 'ProductController');
 Route::resource('client', 'ClientController');
 Route::resource('rumah', 'RumahController');
