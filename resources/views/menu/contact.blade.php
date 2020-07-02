@@ -55,10 +55,11 @@
 
             <div class="form-row">
               <div class="col-md-12">
-                <input type="text" name="subject" for="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" placeholder="masukan subject">
-                @error('subject')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                <select name="subject" id="subject" class="form-control">
+                  <option value="Komplain" {{ old('subject') == 'Komplain' ? 'selected' : ' '  }}>Komplain</option>
+                  <option value="Saran/Kritik" {{ old('subject') == 'Saran/Kritik' ? 'selected' : ' ' }}>Saran/Kritik</option>
+                  <option value="Tanya ?" {{ old('subject') == 'Tanya' ?  'selected' : ''}}>Tanya ?</option>
+                </select>
               </div>
             </div>
 

@@ -28,7 +28,6 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Subject</th>
-                                    <th>Pesan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -39,11 +38,10 @@
                                         <td>{{ $contacts->nama }}</td>
                                         <td>{{ $contacts->email }}</td>
                                         <td>{{ $contacts->subject }}</td>
-                                        <td>{{ $contacts->pesan }}</td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-
-                                                <button type="button" href="#" class="btn btn-info p-1 ml-1" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-eye"></i></button>
+                                                <label for="triger"></label>
+                                                <button type="button"  id="triger" href="#" class="btn btn-info p-1 ml-1" data-toggle="modal" data-target="#exampleModal{{ $loop->iteration }}"><i class="fas fa-eye"></i></button>
                                                 <form action="{{ route('contact.destroy', ['contact' => $contacts->id]) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
@@ -51,21 +49,20 @@
                                                 </form>
                                             </div>
                                         </td>
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                               <div class="modal-content">
                                                 <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                  <h5 class="modal-title" id="exampleModalLabel">From : {{ $contacts->email }}</h5>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                   </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                  ...
+                                                  <p>{{ $contacts->pesan }}</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
                                               </div>
                                             </div>
