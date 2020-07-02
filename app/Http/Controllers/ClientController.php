@@ -14,7 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+        return view('admin.clients.index', compact('clients'));
     }
 
     /**
@@ -24,7 +25,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        return view('admin.clients.create', compact('clients'));
     }
 
     /**
@@ -35,7 +37,26 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name_client' => 'required',
+            'products' => 'required',
+            'location' => 'required',
+            'age' => 'required',
+            'date_production' => 'required',
+            'description' => 'required|max:900',
+            'fee' => 'required',
+            'img_client' => 'image|max:4024'
+        ]);
+
+        $image = $request->all();
+        $image['img_client'] = $request->file('img_client')->store(
+            'asset/client',
+            'public'
+        );
+
+        Client::create($image);
+        $request->session()->flash('added', "Client {$image['name_client']} has been successfully added");
+        return redirect()->route('client.index');
     }
 
     /**
@@ -80,6 +101,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('client.index')->with('delete', "Client name $client->name_client has been successfully removed");
     }
 }

@@ -14,9 +14,14 @@
   <!-- Custom fonts for this template-->
   <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+
 
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('admin/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+
 
   {{-- script CKEDITOR --}}
   @yield('ckeditor')
@@ -73,7 +78,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <a class="nav-link collapsed" href="{{ route('client.index')}}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-users"></i>
           <span>Clients</span>
         </a>
@@ -113,7 +118,7 @@
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
-  
+
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
