@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/master', function () {
 //     return view('front.master');
@@ -25,9 +25,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('menu.product');
 // });
 
-// Route::get('/back', function () {
-//     return view('back.master');
-// });
+Route::get('/back', function () {
+    return view('back.master');
+});
 
 
 
@@ -36,6 +36,7 @@ Auth::routes();
 Route::resource('contact', 'ContactController');
 Route::resource('product', 'ProductController');
 Route::resource('client', 'ClientController');
+Route::resource('input', 'InputController');
     
 Route::get('/home', 'HomeController@index')->name('home');
 
