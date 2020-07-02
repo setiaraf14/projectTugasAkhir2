@@ -36,6 +36,9 @@ Auth::routes();
 Route::resource('contact', 'ContactController');
 Route::resource('product', 'ProductController');
 Route::resource('client', 'ClientController');
+Route::resource('rumah', 'RumahController');
+
+Route::get('/','ProfileRumahController@index');
     
 Route::get('/home', 'HomeController@index')->name('home');
 
