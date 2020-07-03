@@ -32,8 +32,7 @@
                         @error('harga')
                             {{ $message }}
                         @enderror
-                </div>
-                    
+                </div>                   
             <button type="submit" class="btn btn-primary mb-2">Save</button>
         </form>
       </div>
