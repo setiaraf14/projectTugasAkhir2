@@ -38,8 +38,8 @@ Route::get('contact/create', 'ContactController@create')->name('contact.create')
 Route::post('contact', 'ContactController@store')->name('contact.store');
 Route::get('/','ProfileRumahController@index');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/Profileclient', 'UserClientController@index');
-Route::resource('contact', 'ContactController');
+Route::get('/Profileclient', 'UserClientController@index')->name('Profileclient.index');
+// Route::resource('contact', 'ContactController');
 
 
             

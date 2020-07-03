@@ -2,7 +2,20 @@
 @section('title', 'Clients')
 
 @section('judul-content')
-
+<div class="wrapper">
+  <div class="container">
+      <div class="row m-2">
+        <div class="banner-info text-center wow fadeIn delay-05s">
+          <h1 class="bnr-sub-title" style="font-size: 150px">OUR CLIENTS</h1>
+          <h1>US</h1>
+          <div class="overlay-detail">
+            <a href="#feature"><i class="fa fa-angle-down"></i></a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+@endsection
 
 @section('content')
 <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
@@ -27,7 +40,7 @@
                         <p class="card-text text-center text-muted text-uppercase" style="font-size: 14px">{{$client->location}}</p>
                         <hr  style="border: 6px solid black;width:30%;heigh:100%">
                         <br>
-                        <p class="card-text text-left">{!!$client->description!!}</p>
+                        <p class="card-text text-left">{!!$client->deskripsi!!}</p>
 
                     </div>
                   </div>

@@ -16,7 +16,7 @@ class RumahController extends Controller
     {
         //
         $data = Rumah::all();
-        return view('rumah.index',compact('data'));
+        return view('admin.rumah.index',compact('data'));
     }
 
     /**

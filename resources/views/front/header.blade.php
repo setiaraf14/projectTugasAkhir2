@@ -50,7 +50,7 @@
 
                                     <li class=""><a href="#product">Product</a></li>
 
-                                    <li class=""><a href="#Clients">Clients</a></li>
+                                    <li class=""><a href="{{ route('Profileclient.index') }}">Clients</a></li>
 
                                     <li class=""><a href="{{ route('contact.create') }}">Contact</a></li>
 
