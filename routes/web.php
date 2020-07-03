@@ -37,6 +37,7 @@ Route::resource('contact', 'ContactController');
 Route::resource('product', 'ProductController');
 Route::resource('client', 'ClientController');
 Route::resource('input', 'InputController');
+Route::get('produk', 'PemersatuController@index');
     
 Route::get('/home', 'HomeController@index')->name('home');
 
