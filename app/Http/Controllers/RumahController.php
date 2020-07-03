@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Rumah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +16,7 @@ class RumahController extends Controller
     {
         //
         $data = Rumah::all();
-        return view('admin.rumah.index',compact('data'));
+        return view('rumah.index',compact('data'));
     }
 
     /**

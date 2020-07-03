@@ -33,7 +33,7 @@
                 <header id="main-header">
                     <nav class="navbar navbar-default navbar-fixed-top">
                         <div class="container">
-                            <div class="navbar-header">
+                            <div class="navbar-header pl-1">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                                     data-target="#myNavbar">
                                     <span class="icon-bar"></span>
@@ -41,7 +41,7 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 {{-- <a class="navbar-brand" href="#">Ba<span class="logo-dec">ker</span></a> --}}
-                                <img src="{{Storage::url(App\Rumah::all()->first()->logo_perusahaan)}}" alt="" class="img-rounded" style="width: 200px;height:75px">
+                                <img src="{{Storage::url(App\Rumah::all()->first()->logo_perusahaan)}}" alt="" class="img-rounded m-2 ml-2" style="width: 60px;height:60px">
                             </div>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav navbar-right">
@@ -52,7 +52,7 @@
 
                                     <li class=""><a href="#Clients">Clients</a></li>
 
-                                    <li class=""><a href="#Contact">Contact</a></li>
+                                    <li class=""><a href="{{ route('contact.create') }}">Contact</a></li>
 
 
                                 </ul>

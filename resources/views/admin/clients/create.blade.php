@@ -2,6 +2,10 @@
 
 @section('title', 'Clients')
 
+@section('ckeditor')
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+@endsection
+
 @section('content')
 <div id="wrapper">
     <div id="content-wrapper" class="d-flex flex-column">
@@ -88,10 +92,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea id="field" onkeyup="countChar(this)" class="form-control @error('description') is-invalid @enderror" name="description"  rows="10"></textarea>
+                                <label for="deskripsi">deskripsi</label>
+                                <textarea id="field" onkeyup="countChar(this)" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi"  rows="10"></textarea>
                                 <div id="charNum"></div>
-                                @error('description')
+                                @error('deskripsi')
                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                               </div>
@@ -123,6 +127,9 @@
 {{-- <script src="{{ asset('/admin/js/bootstrap/custom-file-input.js') }}"></script> --}}
 <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('admin/js/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+  <script>
+    CKEDITOR.replace( 'deskripsi' );
+  </script>
   <script type="text/javascript">
     $(document).ready(function () {
       bsCustomFileInput.init();
