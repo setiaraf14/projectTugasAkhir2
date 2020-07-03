@@ -44,7 +44,7 @@ class InputController extends Controller
         'gambar_product' => 'image|max:2000',
         'harga' => 'required'
         ]);
-        $validateDate['gambar_product'] = $request->file('gambar_product')->store('assets/product','public');
+        $validateDate['gambar_product'] = $request->file('gambar_product')->store('asset/product','public');
         Input::create($validateDate);
         $request->session()->flash('pesan', "Data {$validateDate['product_id']} Simpan ");
         return redirect()->route('input.index');
@@ -90,15 +90,17 @@ class InputController extends Controller
             'gambar_product' => 'image|max:2000',
             'harga' => 'required'
             ]);
-        $input = new Input();
-        $input->product_id = $validatedDate['product_id'];
+        // $input->product_id = $validatedDate['product_id'];
+        $dataId = $input->find($input->id);
+        $data = $request->all();
         if($request->gambar_product){
-            Storage::delete('public/' .$input->gambar_product);
-            $input['gambar_product'] = $request->file('gambar_product')->store('assets/product','public');
+            Storage::delete('public/'.$dataId->gambar_product);
+            $data['gambar_product'] = $request->file('gambar_product')->store('asset/product','public');
         }
-        $input->harga = $validatedDate['harga'];
-        $input->save();
-        $input->update($validateDate);
+        // $input->harga = $validatedDate['harga'];
+        // $input->save();
+        $dataId->update($data);
+        // $input->update($validateDate);
         return redirect()->route('input.index',['input'=>$input->product_id])->with('pesan',"update data {$validateDate['product_id']} Berhasil ");
     }
 

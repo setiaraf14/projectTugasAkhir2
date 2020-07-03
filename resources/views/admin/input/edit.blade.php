@@ -6,7 +6,8 @@
 <div class="container bg-white">
     <div class="row">
         <div class="col-md-12">
-        <form action="{{ route('input.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('input.update', $input->id ) }}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="product_id">Nama Produk</label>
