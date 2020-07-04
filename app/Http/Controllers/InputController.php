@@ -6,6 +6,7 @@ use App\Input;
 use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
+use App\Client;
 
 class InputController extends Controller
 {
@@ -28,7 +29,8 @@ class InputController extends Controller
     public function create()
     {
         $products = Product::all();
-        return view('admin.input.create', compact('products'));
+        $clients = Client::all();
+        return view('admin.input.create', compact('products','clients'));
     }
 
     /**
@@ -41,6 +43,7 @@ class InputController extends Controller
     {
         $validateDate = $request->validate([
         'product_id' => 'required',
+        'client_id'=>'required',
         'gambar_product' => 'image|max:2000',
         'harga' => 'required'
         ]);

@@ -20,8 +20,9 @@
         <figure>
           <img src="{{Storage::url($input->gambar_product)}}" alt="{{$input->nama_product}}" class="img-responsive" width="400" height="400">
           <figcaption>
-            <h2>{{ $input->product->nama_product }} </h2>
-            <p>Rp. {{ $input->harga }}</p>
+            <h2>Tipe : {{ $input->product->nama_product }} </h2>
+            <h2>Nama Client : {{ $input->client->name_client }} </h2>
+            <p>Harga : Rp. {{ $input->harga }}</p>
           </figcaption>
         </figure>
       </div>

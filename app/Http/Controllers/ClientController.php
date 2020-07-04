@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use App\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
 {
@@ -26,7 +28,8 @@ class ClientController extends Controller
     public function create()
     {
         $clients = Client::all();
-        return view('admin.clients.create', compact('clients'));
+        $product = Product::all();
+        return view('admin.clients.create', compact('clients','product'));
     }
 
     /**
@@ -39,7 +42,6 @@ class ClientController extends Controller
     {
         $validateData = $request->validate([
             'name_client' => 'required',
-            'products' => 'required',
             'location' => 'required',
             'age' => 'required',
             'date_production' => 'required',
@@ -48,14 +50,14 @@ class ClientController extends Controller
             'img_client' => 'image|max:4024'
         ]);
 
-        $image = $request->all();
-        $image['img_client'] = $request->file('img_client')->store(
+       
+        $validateData['img_client'] = $request->file('img_client')->store(
             'asset/client',
             'public'
         );
-
-        Client::create($image);
-        $request->session()->flash('added', "Client {$image['name_client']} has been successfully added");
+        $client = Client::create($validateData);
+        $client->product()->attach($request->product);
+        $request->session()->flash('added', "Client {$validateData['name_client']} has been successfully added");
         return redirect()->route('client.index');
     }
 
@@ -102,6 +104,7 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
+        Storage::delete('public/'.$client->img_client);
         return redirect()->route('client.index')->with('delete', "Client name $client->name_client has been successfully removed");
     }
 }

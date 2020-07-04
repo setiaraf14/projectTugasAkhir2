@@ -21,6 +21,7 @@
   <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
   <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
   <link href="{{ asset('admin/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 
   {{-- script CKEDITOR --}}
@@ -64,28 +65,34 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('rumah.index')}}"  data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="{{route('rumah.index')}}" >
           <i class="fas fa-home"></i>
           <span>Index/User/Home</span>
         </a>
       </li>
 
-      {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('product.index')}}">
           <i class="fas fa-box"></i>
           <span>Product</span>
         </a>
-      </li> --}}
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('input.index')}}">
+          <i class="fas fa-box"></i>
+          <span>Gambar Product</span>
+        </a>
+      </li>
 
       <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ url('admin/client')}}"  data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <a class="nav-link collapsed" href="{{ url('admin/client')}}" >
           <i class="fas fa-users"></i>
           <span>Clients</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('contact.index') }}"  data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="{{ route('contact.index') }}" >
           <i class="far fa-address-book"></i>
           <span>Contact</span>
         </a>

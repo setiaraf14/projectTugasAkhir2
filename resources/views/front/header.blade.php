@@ -48,7 +48,7 @@
 
                                     <li class="active"><a href="{{url('/')}}">Home</a></li>
 
-                                    <li class=""><a href="#product">Product</a></li>
+                                    <li class=""><a href="{{url('/product')}}">Product</a></li>
 
                                     <li class=""><a href="{{ route('Profileclient.index') }}">Clients</a></li>
 

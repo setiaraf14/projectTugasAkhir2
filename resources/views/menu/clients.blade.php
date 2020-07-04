@@ -41,7 +41,13 @@
                         <hr  style="border: 6px solid black;width:30%;heigh:100%">
                         <br>
                         <p class="card-text text-left">{!!$client->deskripsi!!}</p>
-
+                        <hr>
+                        <h1>Produk Yang Client Gunakan :</h1>
+                        <ul>
+                          @foreach ($client->product as $item)
+                              <li>{{$item->nama_product}}</li>
+                          @endforeach
+                        </ul>
                     </div>
                   </div>
                 </div>

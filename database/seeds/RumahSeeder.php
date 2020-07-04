@@ -22,7 +22,5 @@ class RumahSeeder extends Seeder
             'logo_perusahaan'=>'',
             'alamat_perusahaan'=>'Cibodas',
         ]);
-        
     }
 }
-

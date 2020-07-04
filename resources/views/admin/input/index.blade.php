@@ -22,6 +22,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Produk</th>
+                        <th>Nama Client</th>
                         <th scope="col">Gambar</th>
                         <th scope="col">Harga</th>    
                         <th scope="col">Action</th>    
@@ -32,6 +33,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$input->product->nama_product}}</td>
+                            <td>{{$input->client->name_client}}</td>
                             <td><img src="{{ Storage::url($input->gambar_product) }} " alt="" style="width: 350px; height: 150px"></td>
                             <td>Rp. {{ number_format($input->harga, 2, ',', '.') }}</td>
                             <td>
