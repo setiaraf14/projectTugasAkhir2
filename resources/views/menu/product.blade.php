@@ -4,6 +4,17 @@
 @section('judul-content')
     <div class="wrapper">
         {{-- disini isi dari jumbotron paralax isi sesuai dengan judul content --}}
+        <div class="container">
+            <div class="row m-2">
+              <div class="banner-info text-center wow fadeIn delay-05s">
+                  <h1>OUR</h1>
+                  <h1 class="bnr-sub-title" style="font-size: 150px">PRODUCT</h1>
+                <div class="overlay-detail">
+                  <a href="#feature"><i class="fa fa-angle-down"></i></a>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
 @endsection
 

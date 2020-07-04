@@ -46,10 +46,10 @@
                       <tr>
                         <th>#</th>
                         <th>Name Client</th>
-                        <th>Product</th>
+                        {{-- <th>Product</th> --}}
                         <th>Location</th>
                         <th>Age</th>
-                        <th >Date of Production</th>
+                        <th>Date of Production</th>
                         <th>Fee</th>
                         <th>Client Product</th>
                         <th></th>
@@ -61,7 +61,7 @@
                       <tr>
                         <td> {{$loop->iteration}}</td>
                         <td class="text-uppercase"> {{$client->name_client}}</td>
-                        <td> {{$client->products}}</td>
+                        {{-- <td> {{$client->products}}</td> --}}
                         <td class="text-uppercase"> {{$client->location}}</td>
                         <td> {{$client->age}}</td>
                         <td> {{$client->date_production}}</td>
