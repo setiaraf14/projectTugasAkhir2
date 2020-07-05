@@ -22,7 +22,7 @@
 
             <!-- Page Heading -->
             <h1 class="h3 mb-2 text-gray-800">Clients</h1>
-            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur distinctio veritatis dolorum est ab quas iusto dicta illum, tempore culpa omnis id, commodi, beatae reiciendis atque esse debitis laborum odio?</p>
+            <p class="mb-4">Kolom Data Clients</p>
             @if (session()->has('added'))
             <div class="alert alert-success">
                 {{ session()->get('added') }}
@@ -50,7 +50,6 @@
                         <th>Location</th>
                         <th>Age</th>
                         <th>Date of Production</th>
-                        <th>Fee</th>
                         <th>Client Product</th>
                         <th></th>
                       </tr>
@@ -65,7 +64,7 @@
                         <td class="text-uppercase"> {{$client->location}}</td>
                         <td> {{$client->age}}</td>
                         <td> {{$client->date_production}}</td>
-                        <td>Rp  {{$client->fee}}</td>
+                        {{-- <td>Rp. {{ number_format($client->fee,2,',','.') }}</td> --}}
                         <td>
                           <ol>
                             @foreach ($client->product as $item)

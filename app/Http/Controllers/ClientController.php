@@ -46,7 +46,7 @@ class ClientController extends Controller
             'age' => 'required',
             'date_production' => 'required',
             'deskripsi' => 'required|max:900',
-            'fee' => 'required',
+            // 'fee' => 'required',
             'img_client' => 'image|max:4024'
         ]);
 

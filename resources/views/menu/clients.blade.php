@@ -1,5 +1,6 @@
 @extends('front.master')
 @section('title', 'Clients')
+@section('clients', 'active')
 
 @section('judul-content')
 <div class="wrapper">
@@ -18,16 +19,58 @@
 @endsection
 
 @section('content')
+<style>
+  .kolom{
+     border: 5px solid white;
+     border-radius: 10px
+  }
+  .kolom :hover{
+    box-shadow: -1px -1px 16px 0px rgba(0,0,0,0.75);
+  }
+</style>
 <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="service-title pad-bt15">Our Clients</h2>
-                <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="sub-title pad-bt15">The following are some clients who have helped us to create happiness</p>
                 <hr class="bottom-line">
             </div>
         </div>
-            @forelse ($clients as $client)
+        <div class="row">
+          @forelse ($clients as $client)
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="kolom">
+              <div class="blog-sec">
+                <div class="blog-img">
+                  <a href="">
+                    <img src="{{Storage::url($client->img_client)}}" class="img-responsive">
+                  </a>
+                </div>
+                <div class="blog-info p-2">
+                  <h2>Product used By {{$client->name_client}}</h2>
+                  <hr>
+                  <p>
+                    <ul>
+                      @foreach ($client->product as $item)
+                          <li>
+                            {{$item->nama_product}}
+                          </li>
+                      @endforeach
+                    </ul>
+                  </p>
+                  <p class="card-text text-left"><b>Description :</b> {!!$client->deskripsi!!}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          @empty
+                <div class="container">
+                    <h1 class="text-center">maintenance</h1>
+                </div>
+            @endforelse
+        </div>
+            {{-- @forelse ($clients as $client)
             <div class="card ">
                 <div class="row ">
                   <div class="col-md-7 text-right">
@@ -52,16 +95,7 @@
                         </ul>
                         {{-- <img src="{{Storage::url($client->input[0]->gambar_product)}}" alt="" class="img-rounded" style="width: 300px;height:150px"> --}}
                         {{-- {{$client->input}} --}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-            @empty
-                <div class="container">
-                    <h1 class="text-center">maintenance</h1>
-                </div>
-            @endforelse
+                  
     </div>
   </section>
 @endsection

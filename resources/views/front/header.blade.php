@@ -46,13 +46,13 @@
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav navbar-right">
 
-                                    <li class="active"><a href="{{url('/')}}">Home</a></li>
+                                    <li class="@yield('home')"><a href="{{url('/')}}">Home</a></li>
 
-                                    <li class=""><a href="{{url('/product')}}">Product</a></li>
+                                    <li class="@yield('product')"><a href="{{url('/product')}}">Product</a></li>
 
-                                    <li class=""><a href="{{ route('Profileclient.index') }}">Clients</a></li>
+                                    <li class="@yield('clients')"><a href="{{ route('Profileclient.index') }}">Clients</a></li>
 
-                                    <li class=""><a href="{{ route('contact.create') }}">Contact</a></li>
+                                    <li class="@yield('contact')"><a href="{{ route('contact.create') }}">Contact</a></li>
 
 
                                 </ul>

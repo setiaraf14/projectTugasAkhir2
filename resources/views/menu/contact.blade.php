@@ -1,5 +1,6 @@
 @extends('front.master')
 @section('title', 'Contact')
+@section('contact', 'active')
 
 @section('judul-content')
     <div class="wrapper">

@@ -20,7 +20,6 @@ class CreateClientsTable extends Migration
             $table->integer('age');
             $table->date('date_production');
             $table->text('deskripsi');
-            $table->bigInteger('fee');
             $table->text('img_client');
             $table->timestamps();
         });

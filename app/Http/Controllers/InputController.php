@@ -49,7 +49,7 @@ class InputController extends Controller
         ]);
         $validateDate['gambar_product'] = $request->file('gambar_product')->store('asset/product','public');
         Input::create($validateDate);
-        $request->session()->flash('pesan', "Data {$validateDate['product_id']} Simpan ");
+        $request->session()->flash('pesan', "Data baru berhasil di simpan ");
         return redirect()->route('input.index');
     }
 

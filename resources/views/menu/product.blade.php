@@ -1,5 +1,6 @@
 @extends('front.master')
 @section('title', 'Product')
+@section('product', 'active')
 
 @section('judul-content')
     <div class="wrapper">
@@ -23,7 +24,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h2 class="service-title pad-bt15">Our Recent Works</h2>
-        <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="sub-title pad-bt15">here are those who have worked with us to create something beautiful</p>
         <hr class="bottom-line">
       </div>
       @forelse ($input as $input)
@@ -32,8 +33,8 @@
           <img src="{{Storage::url($input->gambar_product)}}" alt="{{$input->nama_product}}" class="img-responsive" width="400" height="400">
           <figcaption>
             <h2>Tipe : {{ $input->product->nama_product }} </h2>
-            <h2>Nama Client : {{ $input->client->name_client }} </h2>
-            <p>Harga : Rp. {{ $input->harga }}</p>
+            <h4>Nama Client : {{ $input->client->name_client }} </h4>
+            <p>Harga : Rp. {{ number_format($input->harga,2,',','.') }}</p>
           </figcaption>
         </figure>
       </div>
@@ -41,6 +42,7 @@
             <td colspan="8" class="text-center">Data Kosong</td>
         @endforelse 
     </div>
+    <br>
 </div>
 
 

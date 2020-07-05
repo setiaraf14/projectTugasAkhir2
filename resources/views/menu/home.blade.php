@@ -1,5 +1,6 @@
 @extends('front.master')
 @section('title', 'Home')
+@section('home', 'active')
 
 @foreach ($data as $item)
 @section('judul-content')
@@ -8,7 +9,7 @@
         <br>
         <h4 class="text-center">Our Motto Is : </h4>
         <br>
-        <h2>{!! $item->moto_perusahaan !!}</h2>
+        <h1>{!! $item->moto_perusahaan !!}</h1>
 @endsection
 
 @section('content')
