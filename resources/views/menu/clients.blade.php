@@ -6,8 +6,8 @@
   <div class="container">
       <div class="row m-2">
         <div class="banner-info text-center wow fadeIn delay-05s">
-          <h1 class="bnr-sub-title" style="font-size: 150px">OUR CLIENTS</h1>
-          <h1>US</h1>
+          <h1>OUR</h1>
+          <h1 class="bnr-sub-title" style="font-size: 150px">CLIENTS</h1>
           <div class="overlay-detail">
             <a href="#feature"><i class="fa fa-angle-down"></i></a>
           </div>
@@ -41,7 +41,17 @@
                         <hr  style="border: 6px solid black;width:30%;heigh:100%">
                         <br>
                         <p class="card-text text-left">{!!$client->deskripsi!!}</p>
-
+                        <hr>
+                        <h1>Produk Yang Client Gunakan :</h1>
+                        <ul>
+                          @foreach ($client->product as $item)
+                              <li>
+                                {{$item->nama_product}}
+                              </li>
+                          @endforeach
+                        </ul>
+                        {{-- <img src="{{Storage::url($client->input[0]->gambar_product)}}" alt="" class="img-rounded" style="width: 300px;height:150px"> --}}
+                        {{-- {{$client->input}} --}}
                     </div>
                   </div>
                 </div>

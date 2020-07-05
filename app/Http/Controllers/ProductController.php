@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::all();
+        return view('admin.product.index', compact('product'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_product' => 'required|unique:products'
+        ]);
+        Product::create($validatedData);
+        return redirect()->route('product.index')->with('pesan', "Produk $request->nama_product Berhasil ditambahkan");
     }
 
     /**
@@ -57,7 +63,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit', compact('product'));
     }
 
     /**
@@ -69,7 +75,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_product' => 'required|unique:products,nama_product,'.$product->id,
+        ]);
+
+        $product->update($validatedData);
+        return redirect()->route('product.index')->with('pesan',"Produk $product->nama_product berhasil diubah");
     }
 
     /**
@@ -80,6 +91,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index')->with('pesan', "Produk $product->nama_product berhasil dihapus");
     }
 }

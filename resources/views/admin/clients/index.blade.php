@@ -46,11 +46,12 @@
                       <tr>
                         <th>#</th>
                         <th>Name Client</th>
-                        <th>Product</th>
+                        {{-- <th>Product</th> --}}
                         <th>Location</th>
                         <th>Age</th>
-                        <th >Date of Production</th>
+                        <th>Date of Production</th>
                         <th>Fee</th>
+                        <th>Client Product</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -60,11 +61,18 @@
                       <tr>
                         <td> {{$loop->iteration}}</td>
                         <td class="text-uppercase"> {{$client->name_client}}</td>
-                        <td> {{$client->products}}</td>
+                        {{-- <td> {{$client->products}}</td> --}}
                         <td class="text-uppercase"> {{$client->location}}</td>
                         <td> {{$client->age}}</td>
                         <td> {{$client->date_production}}</td>
                         <td>Rp  {{$client->fee}}</td>
+                        <td>
+                          <ol>
+                            @foreach ($client->product as $item)
+                                <li>{{$item->nama_product}}</li>
+                            @endforeach
+                          </ol>
+                        </td>
                         <td>
                             <a class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal{{$loop->iteration}}"><i class="far fa-eye"></i></a>
                             <div class="modal fade" id="exampleModal{{$loop->iteration}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{$loop->iteration}}" aria-hidden="true">

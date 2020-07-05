@@ -30,7 +30,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="products">Product</label>
                                 <select class="form-control @error('products') is-invalid @enderror" style="width: 100%;" name="products" id="products">
                                   <option value="weeding" id="wedding" {{ old('products') == 'wedding' ? 'selected' : '' }}>Wedding</option>
@@ -40,8 +40,17 @@
                                     @error('products')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                </select>
-                            </div>
+                                </select>\
+                            </div> --}}
+                            <div class="form-group">
+                              <label for="product">Product</label>
+                              <select class="js-example-placeholder-multiple js-states form-control" multiple="multiple" id="product"
+                                  name="product[]">
+                                  @foreach ($product as $item)
+                                      <option value="{{$item->id}}">{{$item->nama_product}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
@@ -127,14 +136,17 @@
 {{-- <script src="{{ asset('/admin/js/bootstrap/custom-file-input.js') }}"></script> --}}
 <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('admin/js/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
   <script>
+    $(".js-example-placeholder-multiple").select2({
+            placeholder: "Pilih Hobi Anda"
+        });
     CKEDITOR.replace( 'deskripsi' );
   </script>
   <script type="text/javascript">
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
-
   </script>
 <script>
     function countChar(val) {
