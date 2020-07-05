@@ -49,10 +49,7 @@ class ClientController extends Controller
         ]);
 
         $image = $request->all();
-        $image['img_client'] = $request->file('img_client')->store(
-            'asset/client',
-            'public'
-        );
+        $image['img_client'] = $request->file('img_client')->store('asset/client','public');
 
         Client::create($image);
         $request->session()->flash('added', "Client {$image['name_client']} has been successfully added");
